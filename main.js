@@ -1,13 +1,12 @@
 var $car = document.querySelector('#car');
 var turnList = ['turn0', 'turn90', 'turn180', 'turn270'];
-var intervalID;
+var intervalID = null;
 var carLocation = {
   x: 0,
   y: 0
 };
 
 window.addEventListener('keydown', handleKeyDown);
-window.addEventListener('keyup', handleKeyUp);
 
 function doTurn(turnName) {
   for (var i = 0; i < turnList.length; i++) {
@@ -27,19 +26,16 @@ function handleKeyDown(event) {
   } else if (event.key === 'ArrowUp') {
     doTurn('turn270');
   } else if (event.code === 'Space') {
-    startMoving();
-  }
-}
-
-function handleKeyUp(event) {
-  if (event.code === 'Space') {
-    stopMoving();
+    if (intervalID === null) {
+      startMoving();
+    } else {
+      stopMoving();
+    }
   }
 }
 
 function moveCar() {
-  var styleText = 'top: ' + carLocation.y + 'px; left: ' + carLocation.x + 'px';
-  $car.setAttribute('style', styleText);
+  $car.style.left = carLocation.x + 'px';
   carLocation.x += 7;
 }
 
@@ -49,4 +45,5 @@ function startMoving() {
 
 function stopMoving() {
   clearInterval(intervalID);
+  intervalID = null;
 }
