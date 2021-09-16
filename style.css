@@ -3,6 +3,7 @@ body {
 }
 
 #car {
+  position: absolute;
   max-height: 200px;
   transition: transform ease-in-out 0.25s;
 }
