@@ -4,4 +4,25 @@ body {
 
 #car {
   max-height: 200px;
+  transition: transform ease-in-out 0.25s;
+}
+
+.turn0 {
+  transform: none;
+  transition: transform ease-in-out 0.25s;
+}
+
+.turn90 {
+  transform: rotate(90deg);
+  transition: transform ease-in-out 0.25s;
+}
+
+.turn180 {
+  transform: rotate(180deg);
+  transition: transform ease-in-out 0.25s;
+}
+
+.turn270 {
+  transform: rotate(270deg);
+  transition: transform ease-in-out 0.25s;
 }
