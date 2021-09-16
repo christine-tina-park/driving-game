@@ -35,8 +35,19 @@ function handleKeyDown(event) {
 }
 
 function moveCar() {
-  $car.style.left = carLocation.x + 'px';
-  carLocation.x += 7;
+  if ($car.className === 'turn0') {
+    $car.style.left = carLocation.x + 'px';
+    carLocation.x += 7;
+  } else if ($car.className === 'turn90') {
+    $car.style.top = carLocation.y + 'px';
+    carLocation.y += 7;
+  } else if ($car.className === 'turn180') {
+    $car.style.left = carLocation.x + 'px';
+    carLocation.x -= 7;
+  } else if ($car.className === 'turn270') {
+    $car.style.top = carLocation.y + 'px';
+    carLocation.y -= 7;
+  }
 }
 
 function startMoving() {
