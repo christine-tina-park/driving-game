@@ -1,41 +1,25 @@
 var $car = document.querySelector('#car');
-var turnList = [
-  {
-    name: 'turn0',
-    i: 0
-  },
-  {
-    name: 'turn90',
-    i: 1
-  },
-  {
-    name: 'turn180',
-    i: 2
-  },
-  {
-    name: 'turn270',
-    i: 3
-  }
+var turnList = ['turn0', 'turn90', 'turn180', 'turn270'
 ];
 
 window.addEventListener('keydown', handleKeyDown);
 
-function doTurn(iNumber) {
+function doTurn(turnName) {
   for (var i = 0; i < turnList.length; i++) {
-    if (turnList[i].i === iNumber) {
-      $car.className = turnList[i].name;
+    if (turnList[i] === turnName) {
+      $car.className = turnList[i];
     }
   }
 }
 
 function handleKeyDown(event) {
   if (event.key === 'ArrowRight') {
-    doTurn(0);
+    doTurn('turn0');
   } else if (event.key === 'ArrowDown') {
-    doTurn(1);
+    doTurn('turn90');
   } else if (event.key === 'ArrowLeft') {
-    doTurn(2);
+    doTurn('turn180');
   } else if (event.key === 'ArrowUp') {
-    doTurn(3);
+    doTurn('turn270');
   }
 }
